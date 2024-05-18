@@ -42,12 +42,5 @@ public class EnemyShoot : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = firePoint.right * bulletSpeed; // Mermiyi ileri doðru fýrlat
-
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        if (bulletScript != null)
-        {
-            bulletScript.isPlayerBullet = false; // Merminin düþman tarafýndan ateþlendiðini belirt
-        }
     }
-
 }
