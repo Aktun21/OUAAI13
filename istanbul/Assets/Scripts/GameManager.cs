@@ -1,66 +1,32 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public TMP_Text timerText;
-    public float gameTime = 50f; // Oyun süresi (saniye cinsinden)
+    public float gameTime = 300f; // Oyun süresi (saniye cinsinden)
+    public int playerDamage = 35; // Oyuncunun atýþýnýn verdiði hasar
+    public int enemyHealth = 100; // Düþmanýn caný
     private float currentTime;
-    public AudioClip alertSound; // Uyarý sesi
-    public AudioSource audioSource; // Ses kaynaðý
-    public float countdownThreshold = 30f; // Kýrmýzýya geçiþ eþiði (saniye cinsinden)
-    public float criticalTime = 5f; // Kritik zaman eþiði (saniye cinsinden)
-    public float textGrowScale = 1.5f; // Metnin büyüme ölçeði
-    public float fastTimeMultiplier = 2f; // Zaman hýzlanma çarpaný
-
-    private Color defaultTextColor; // Metnin varsayýlan rengi
-    private bool isFastTime = false;
 
     void Start()
     {
         currentTime = gameTime;
-        defaultTextColor = timerText.color; // Varsayýlan metin rengini kaydet
         UpdateTimerDisplay();
         InvokeRepeating("UpdateGameTime", 1f, 1f); // Her saniyede zamaný güncelle
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isFastTime = true;
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            isFastTime = false;
-        }
-    }
-
     void UpdateGameTime()
     {
-        float timeDecrement = isFastTime ? fastTimeMultiplier : 1f;
-        currentTime -= timeDecrement;
+        currentTime -= 1f;
 
         // Zamaný güncelle
         UpdateTimerDisplay();
 
-        // Zaman kritik eþiðin altýndaysa ses çal
-        if (currentTime <= criticalTime && !audioSource.isPlaying)
-        {
-            audioSource.PlayOneShot(alertSound);
-        }
-
-        // Zaman sýfýr olduðunda sahneyi baþtan yükle
+        // Oyun süresi bittiðinde oyunu durdur
         if (currentTime <= 0f)
         {
-            ReloadScene();
-        }
-
-        // Zaman kritik eþiðin üstündeyse ve ses çalýyorsa, sesi durdur
-        if (currentTime > criticalTime && audioSource.isPlaying)
-        {
-            audioSource.Stop();
+            EndGame();
         }
     }
 
@@ -69,28 +35,10 @@ public class GameManager : MonoBehaviour
         // Zamaný dakika ve saniye cinsine dönüþtür
         int minutes = Mathf.FloorToInt(currentTime / 60f);
         int seconds = Mathf.FloorToInt(currentTime % 60f);
+        int milliseconds = Mathf.FloorToInt((currentTime * 100) % 100);
 
         // Dijital saat metnini güncelle
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-
-        // Zaman belirli bir eþiðin altýna düþtüðünde metni kýrmýzýya dönüþtür ve büyüt
-        if (currentTime <= countdownThreshold)
-        {
-            timerText.color = Color.red;
-            timerText.transform.localScale = Vector3.one * textGrowScale;
-        }
-        else
-        {
-            // Zaman eþiðin üzerindeyse, metni varsayýlan rengine ve ölçeðe geri döndür
-            timerText.color = defaultTextColor;
-            timerText.transform.localScale = Vector3.one * 3.12f;
-        }
-
-        // Zaman 00:00 olduðunda sahneyi baþtan yükle
-        if (minutes == 0 && seconds == 0)
-        {
-            ReloadScene();
-        }
+        timerText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
     }
 
     public void PlayerHitByBullet()
@@ -106,10 +54,11 @@ public class GameManager : MonoBehaviour
         UpdateTimerDisplay(); // Dijital saati güncelle
     }
 
-    void ReloadScene()
+    public void EnemyDestroyed()
     {
-        // Sahneyi baþtan yükle
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // Düþman yok edildiðinde 15 saniye eklenir
+        currentTime += 15f;
+        UpdateTimerDisplay();
     }
 
     void EndGame()

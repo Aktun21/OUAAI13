@@ -79,8 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224,
-    type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e39c93525807c4aa514334956be235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5.05
+  moveSpeed: 3
 --- !u!114 &239048146496213218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,12 +142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b47aee2941430439ed288c6b286cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8383406396979416807, guid: 46ade8e68a4ce594b95ab84299558557,
-    type: 3}
+  bulletPrefab: {fileID: 4839162435172803487, guid: 95c459ea44aa39c46abb6029238d3ff4, type: 3}
   firePoint: {fileID: 4552295842381291444}
-  bulletSpeed: 9.81
-  shootRange: 10
-  fireRate: 1.04
+  bulletSpeed: 10
+  shootRange: 5
+  fireRate: 1
 --- !u!60 &2560408335607983429
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -210,8 +208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  GameManager: {fileID: 0}
-  timeToAddOnDeath: 3.1
 --- !u!1 &6530840890827412048
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,8 +281,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
-    type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
