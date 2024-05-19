@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8563589431098634757}
   - component: {fileID: 5548500241657169005}
   - component: {fileID: 4717789113060716094}
+  - component: {fileID: 3216435897226708204}
   m_Layer: 0
   m_Name: ShotgunBullet
   m_TagString: PlayerBullet
@@ -163,3 +164,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 7
+--- !u!114 &3216435897226708204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839162435172803487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbcc0678863e2142ba54d09dbed3177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 65
+  isShotgunBullet: 1
+  decayRate: 2.02
+  minDamage: 10

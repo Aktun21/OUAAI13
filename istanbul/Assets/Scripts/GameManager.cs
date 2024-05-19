@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public TMP_Text timerText;
-    public float gameTime = 300f; // Oyun süresi (saniye cinsinden)
-    public int playerDamage = 35; // Oyuncunun atýþýnýn verdiði hasar
-    public int enemyHealth = 100; // Düþmanýn caný
+    public float gameTime = 50f; // Oyun süresi (saniye cinsinden)
     private float currentTime;
     public AudioClip alertSound; // Uyarý sesi
     public AudioSource audioSource; // Ses kaynaðý
     public float countdownThreshold = 30f; // Kýrmýzýya geçiþ eþiði (saniye cinsinden)
     public float criticalTime = 5f; // Kritik zaman eþiði (saniye cinsinden)
     public float textGrowScale = 1.5f; // Metnin büyüme ölçeði
+    public float fastTimeMultiplier = 2f; // Zaman hýzlanma çarpaný
 
     private Color defaultTextColor; // Metnin varsayýlan rengi
+    private bool isFastTime = false;
 
     void Start()
     {
@@ -25,9 +25,22 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("UpdateGameTime", 1f, 1f); // Her saniyede zamaný güncelle
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isFastTime = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isFastTime = false;
+        }
+    }
+
     void UpdateGameTime()
     {
-        currentTime -= 1f;
+        float timeDecrement = isFastTime ? fastTimeMultiplier : 1f;
+        currentTime -= timeDecrement;
 
         // Zamaný güncelle
         UpdateTimerDisplay();
@@ -70,7 +83,7 @@ public class GameManager : MonoBehaviour
         {
             // Zaman eþiðin üzerindeyse, metni varsayýlan rengine ve ölçeðe geri döndür
             timerText.color = defaultTextColor;
-            timerText.transform.localScale = Vector3.one*3.12f;
+            timerText.transform.localScale = Vector3.one * 3.12f;
         }
 
         // Zaman 00:00 olduðunda sahneyi baþtan yükle
@@ -91,13 +104,6 @@ public class GameManager : MonoBehaviour
     {
         currentTime += timeToAdd; // Belirli bir süreyi toplam oyun süresine ekle
         UpdateTimerDisplay(); // Dijital saati güncelle
-    }
-
-    public void EnemyDestroyed()
-    {
-        // Düþman yok edildiðinde 15 saniye eklenir
-        currentTime += 15f;
-        UpdateTimerDisplay();
     }
 
     void ReloadScene()

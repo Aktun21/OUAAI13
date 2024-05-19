@@ -30,17 +30,17 @@ public class PlayerShoot : MonoBehaviour
     {
         if (!isReloading && Input.GetKeyDown(KeyCode.Alpha1)) // 1 tuþuna basýldýðýnda
         {
-            SwitchWeapon(automaticGunPrefab, 0.1f, 1, 10f, 2f, 2f);
+            SwitchWeapon(automaticGunPrefab, 0.2f, 1, 15f, 2f, 10f);
         }
 
         if (!isReloading && Input.GetKeyDown(KeyCode.Alpha2)) // 2 tuþuna basýldýðýnda
         {
-            SwitchWeapon(shotgunPrefab, 0.5f, 6, 8f, 5f, 3f);
+            SwitchWeapon(shotgunPrefab, 0.7f, 6, 8f, 4f, 1.5f);
         }
 
         if (!isReloading && Input.GetKeyDown(KeyCode.Alpha3)) // 3 tuþuna basýldýðýnda
         {
-            SwitchWeapon(sniperPrefab, 1.5f, 1, 20f, 0f, 2f);
+            SwitchWeapon(sniperPrefab, 1.5f, 1, 30f, 0f, 2f);
         }
 
         if (Input.GetButton("Fire1")) // Sol fare tuþuna basýlý tutulduðunda
