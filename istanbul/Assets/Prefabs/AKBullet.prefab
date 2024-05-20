@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5423069292561282180}
   - component: {fileID: 344466661847052361}
   - component: {fileID: 5161357581113854651}
-  - component: {fileID: 270546848003531901}
   - component: {fileID: -766689925922382584}
   - component: {fileID: -8268599961349286506}
+  - component: {fileID: 2452286171738747913}
   m_Layer: 0
   m_Name: AKBullet
   m_TagString: PlayerBullet
@@ -115,8 +115,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &270546848003531901
-CircleCollider2D:
+--- !u!114 &-766689925922382584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398966290077053489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9ec6a4d0ed2f4da7489874ad90ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 7
+--- !u!114 &-8268599961349286506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398966290077053489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbcc0678863e2142ba54d09dbed3177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 35
+  isShotgunBullet: 0
+  decayRate: 1
+  minDamage: 5
+--- !u!61 &2452286171738747913
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -148,34 +177,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.06, y: 0.03}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.49999997
---- !u!114 &-766689925922382584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3398966290077053489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6b9ec6a4d0ed2f4da7489874ad90ddd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 7
---- !u!114 &-8268599961349286506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3398966290077053489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbbcc0678863e2142ba54d09dbed3177, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 35
-  isShotgunBullet: 0
-  decayRate: 1
-  minDamage: 5
+  m_Size: {x: 0.06, y: 0.03}
+  m_EdgeRadius: 0
