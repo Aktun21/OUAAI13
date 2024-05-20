@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TUNAstart.unity
+    guid: 364afe3dc99f4bb44a5c2badf7ab38dc
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: ffb44415e61468b409eecda6cbbb2140
+  - enabled: 1
+    path: Assets/Scenes/TUNAgameover.unity
+    guid: 77300191f92d83249900af5ca111d68d
   m_configObjects: {}
