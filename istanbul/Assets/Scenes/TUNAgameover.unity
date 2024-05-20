@@ -705,7 +705,6 @@ GameObject:
   - component: {fileID: 1732060962}
   - component: {fileID: 1732060961}
   - component: {fileID: 1732060960}
-  - component: {fileID: 1732060964}
   - component: {fileID: 1732060965}
   m_Layer: 5
   m_Name: Buttontryagin
@@ -828,18 +827,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732060958}
   m_CullTransparentMesh: 1
---- !u!114 &1732060964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732060958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a899b08fb1de68a4d8cefaecdfe88e09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1732060965
 MonoBehaviour:
   m_ObjectHideFlags: 0

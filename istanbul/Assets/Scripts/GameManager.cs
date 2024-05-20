@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
         // Zaman sýfýr olduðunda sahneyi baþtan yükle
         if (currentTime <= 0f)
         {
-            ReloadScene();
+            SceneManager.LoadScene(2);
         }
 
         // Zaman kritik eþiðin üstündeyse ve ses çalýyorsa, sesi durdur
@@ -87,9 +87,10 @@ public class GameManager : MonoBehaviour
         }
 
         // Zaman 00:00 olduðunda sahneyi baþtan yükle
-        if (minutes == 0 && seconds == 0)
+        if (currentTime <= 0f)
         {
-            ReloadScene();
+
+            SceneManager.LoadScene(2);
         }
     }
 
